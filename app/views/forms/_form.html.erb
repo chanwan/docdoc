@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="col-md-8 offset-md-2 margin-top">
+    <%= form_for(@form) do |f| %>
+      <% if @form.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+    
+          <ul>
+          <% @form.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= f.label  :name, "Ф.И.О" %><br>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :edu ,"Образование"  %><br>
+        <%= f.text_field :edu, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Электронная почта" %><br>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :desc, "Описание" %><br>
+        <%= f.text_area( :desc, class: 'form-control') %>
+      </div>
+      <div class="form-group">
+        <%= f.label :photo, "Фотография" %><br>
+        <%= f.file_field :photo, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :special, "Специальность" %><br>
+        <%= f.text_field :special, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Отправить',class: "btn btn-primary button-width" %>
+      </div>
+    <% end %>
+  </div>
+</div>
